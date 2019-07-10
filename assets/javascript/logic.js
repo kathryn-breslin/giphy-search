@@ -1,7 +1,6 @@
 
 $(document).ready(function () {
-
-    var topics = ["trees", "tigers", "traveling", "bananas", "texas", "succulents", "sunshine", "running", "paris", "sleep"];    
+    var topics = ["trees", "tigers", "traveling", "bananas", "texas", "succulents", "sunshine", "running", "paris", "sleep"];
     //Building buttons to loop through array
     function createButtons() {
         $('#buttonDisplay').empty();
@@ -15,7 +14,7 @@ $(document).ready(function () {
             $('#buttonDisplay').append(button);
         }
     }
-    
+
     //building click functionality
     $('#addTopic').on('click', function (event) {
         event.preventDefault();
@@ -29,8 +28,7 @@ $(document).ready(function () {
     })
 
     //call to GIPHY api
-
-    $('.topic').on('click', function () {
+    $(document).on('click', '.topic', function() {
         console.log("Click");
         var topic = $(this).val();
         $('#gifDisplay').empty();
@@ -56,6 +54,7 @@ $(document).ready(function () {
         })
         console.log(queryUrl);
     })
+
     createButtons();
 
 });
