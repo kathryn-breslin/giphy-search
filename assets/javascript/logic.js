@@ -42,7 +42,7 @@ var topics = ["trees", "tigers", "traveling", "bananas", "texas", "succulents", 
         }).then(function(response) {
             // console.log(response.data);
             //Currently throwing an 'undefined' once .images is attached
-            var imageUrl = response.data.images.fixed_height_still.url;
+            var imageUrl = response.data[0].images.fixed_height_still.url;
             console.log("This is what is getting passed: " + topic)
             console.log(imageUrl);
 
