@@ -40,17 +40,16 @@ var topics = ["trees", "tigers", "traveling", "bananas", "texas", "succulents", 
             url: queryUrl,
             method: "GET"
         }).then(function(response) {
-            // console.log(response.data);
-            //Currently throwing an 'undefined' once .images is attached
-            var imageUrl = response.data[0].images.fixed_height_still.url;
-            console.log("This is what is getting passed: " + topic)
-            console.log(imageUrl);
+            console.log(response);
+            var gifs = response.data;
 
-            //create gifs for each that is returned, based on the search params
-            var gifCard = $("<div class='card'>");
-            var gifImage = $("<img>").attr("src", imageUrl);
-            gifCard.append(gifImage);
-            $('#gifDisplay').append(gifCard);
+            //create gif cards for each that is returned, based on the search param
+            for (var i = 0; i < gifs.length; i++){
+                var gifCard = $("<div class='card'>");
+                var gifImage = $("<img>").attr("src", gifs[i].images.fixed_height_still.url);
+                gifCard.append(gifImage);
+                $('#gifDisplay').append(gifCard);
+            } 
 
         })
         console.log(queryUrl);
