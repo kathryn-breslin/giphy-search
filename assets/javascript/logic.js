@@ -28,12 +28,10 @@ $(document).ready(function () {
     })
 
     //call to GIPHY api
-    $(document).on('click', '.topic', function() {
-        console.log("Click");
-        var topic = $(this).val();
-        $('#gifDisplay').empty();
+    $(document).on('click', '.topic', function () {
+        var gif = $(this).attr('data-name');
         var apiKey = "HfzaLobXPlhuhwVrZxOCHvuJTyKDpo5m";
-        var queryUrl = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey + "&q=" + topic + "&limit=10&rating=G&lang=en";
+        var queryUrl = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey + "&q=" + gif + "&limit=10&rating=G&lang=en";
 
 
         $.ajax({
@@ -41,21 +39,55 @@ $(document).ready(function () {
             method: "GET"
         }).then(function (response) {
             console.log(response);
-            var gifs = response.data;
+
+            gif = response.data;
+            $('#gifDisplay').empty();
 
             //create gif cards for each that is returned, based on the search param
-            for (var i = 0; i < gifs.length; i++) {
-                var gifCard = $("<div class='card'>");
-                var gifImage = $("<img>").attr("src", gifs[i].images.fixed_height_still.url);
-                gifCard.append(gifImage);
+            for (var i = 0; i < gif.length; i++) {
+                var gifCard = $('<div>');
+                gifCard.addClass('individual-gif-container');
+                gifCard.addClass('card');
+    
+                var newGifImage = $("<img src = '" + gif[i].images.fixed_height_still.url + " '>");
+                newGifImage.addClass('gif-image', 'card-image-top');
+                newGifImage.attr("state", "still");
+                newGifImage.attr("still-data", gif[i].images.fixed_height_still.url);
+                newGifImage.attr("animated-data", gif[i].images.fixed_height.url);
+    
+                newDivContents = $('<div>');
+                newDivContents.addClass('card-body');
+    
+                newDivContentsPara = $('<p>')
+                newDivContentsPara.addClass('card-text');
+                newDivContentsPara.append("<p>" + gif[i].title + "</p>");
+                newDivContentsPara.append("<p>Rating: " + gif[i].rating + "</p>");
+    
+                gifCard .append(newGifImage);
+                gifCard .append(newDivContentsPara);
+                gifCard .append(newDivContents);
                 $('#gifDisplay').append(gifCard);
-            }
 
+            }
+            $('.gif-image').on({
+                mouseenter: function () {
+                    $(this).attr("state", "animated");
+                    $(this).attr("src", $(this).attr("animated-data"));
+                },
+                mouseleave: function () {
+                    $(this).attr("state", "still");
+                    $(this).attr("src", $(this).attr("still-data"))
+                }
+            })
         })
-        console.log(queryUrl);
+        // console.log(queryUrl);
     })
 
     createButtons();
 
 });
+
+// var state = $(this).attr("data-state");
+// var still = response.data.image.fixed_height_still;
+// var animate = response.data.image.fixed_height;
 
