@@ -1,9 +1,10 @@
 
-var topics = ["trees", "tigers", "traveling", "bananas", "texas", "succulents", "sunshine", "running", "paris", "sleep"]
+$(document).ready(function () {
 
-    createButtons();
+    var topics = ["trees", "tigers", "traveling", "bananas", "texas", "succulents", "sunshine", "running", "paris", "sleep"];    
+
     //Building buttons to loop through array
-    function createButtons () {
+    function createButtons() {
         $('#buttonDisplay').empty();
         for (var i = 0; i < topics.length; i++) {
             var button = $('<button>');
@@ -15,9 +16,9 @@ var topics = ["trees", "tigers", "traveling", "bananas", "texas", "succulents", 
             $('#buttonDisplay').append(button);
         }
     }
-
+    createButtons();
     //building click functionality
-    $('#addTopic').on('click', function(event) {
+    $('#addTopic').on('click', function (event) {
         event.preventDefault();
 
         var addedTopic = $('#inputTopic').val().trim();
@@ -30,32 +31,31 @@ var topics = ["trees", "tigers", "traveling", "bananas", "texas", "succulents", 
 
     //call to GIPHY api
 
-    $('.topic').on('click', function() {
+    $('.topic').on('click', function () {
         var topic = $(this).val();
+        $('#gifDisplay').empty();
         var apiKey = "HfzaLobXPlhuhwVrZxOCHvuJTyKDpo5m";
         var queryUrl = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey + "&q=" + topic + "&limit=10&rating=G&lang=en";
-        
+
 
         $.ajax({
             url: queryUrl,
             method: "GET"
-        }).then(function(response) {
+        }).then(function (response) {
             console.log(response);
             var gifs = response.data;
 
             //create gif cards for each that is returned, based on the search param
-            for (var i = 0; i < gifs.length; i++){
+            for (var i = 0; i < gifs.length; i++) {
                 var gifCard = $("<div class='card'>");
                 var gifImage = $("<img>").attr("src", gifs[i].images.fixed_height_still.url);
                 gifCard.append(gifImage);
                 $('#gifDisplay').append(gifCard);
-            } 
+            }
 
         })
         console.log(queryUrl);
     })
-    
-    
-    // $(document).on('click', '#topic', giphyCall);
-    // $('.topic').on('click', giphyCall());
+
+});
 
