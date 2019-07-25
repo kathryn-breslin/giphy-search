@@ -48,24 +48,24 @@ $(document).ready(function () {
                 var gifCard = $('<div>');
                 gifCard.addClass('individual-gif-container');
                 gifCard.addClass('card');
-    
+
                 var newGifImage = $("<img src = '" + gif[i].images.fixed_height_still.url + " '>");
                 newGifImage.addClass('gif-image', 'card-image-top');
                 newGifImage.attr("state", "still");
                 newGifImage.attr("still-data", gif[i].images.fixed_height_still.url);
                 newGifImage.attr("animated-data", gif[i].images.fixed_height.url);
-    
-                newDivContents = $('<div>');
+
+                var newDivContents = $('<div>');
                 newDivContents.addClass('card-body');
-    
-                newDivContentsPara = $('<p>')
+
+                var newDivContentsPara = $('<p>')
                 newDivContentsPara.addClass('card-text');
                 newDivContentsPara.append("<p>" + gif[i].title + "</p>");
                 newDivContentsPara.append("<p>Rating: " + gif[i].rating + "</p>");
-    
-                gifCard .append(newGifImage);
-                gifCard .append(newDivContentsPara);
-                gifCard .append(newDivContents);
+
+                gifCard.append(newGifImage);
+                gifCard.append(newDivContentsPara);
+                gifCard.append(newDivContents);
                 $('#gifDisplay').append(gifCard);
 
             }
@@ -80,14 +80,8 @@ $(document).ready(function () {
                 }
             })
         })
-        // console.log(queryUrl);
     })
 
     createButtons();
 
 });
-
-// var state = $(this).attr("data-state");
-// var still = response.data.image.fixed_height_still;
-// var animate = response.data.image.fixed_height;
-
