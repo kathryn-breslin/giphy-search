@@ -2,3 +2,26 @@
     margin: 20px;
     float: left;
 }
+
+.individual-gif-container {
+    float: left;
+    display: inline;
+    margin: 10px;
+    /* border: solid black 1px; */
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    background-color: white;
+    padding: 15px; /* JUST TO LOOK COOL */
+    border: 1px solid #eee;  /* JUST TO LOOK COOL */
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 4px;
+    transition: all .3s ease-in-out;
+}
+
+.individual-gif-container:hover {
+    box-shadow: rgba(0, 0, 0, 0.22) 0px 19px 43px;
+    transform: translate3d(0px, -1px, 0px);
+}
+
+.topic {
+    margin: 10px;
+}
