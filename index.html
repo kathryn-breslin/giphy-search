@@ -2,65 +2,79 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Giphy Search</title>
-
-    <!-- jQuery Library -->
+    <meta charset="utf-8">
+    <title>GifTastic</title>
+    <meta prefix="og: http://ogp.me/ns#" property="og:title" content="GifTastic Gif Search" />
+    <!-- <meta prefix="og: http://ogp.me/ns#" property="og:type" content="{Your content}" /> -->
+    <meta prefix="og: http://ogp.me/ns#" property="og:image" content="assets/images/colorCloud.jpeg" />
+    <meta prefix="og: http://ogp.me/ns#" property="og:url" content="https://kathryn-breslin.github.io/GifTastic/" />
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
 
-    <!-- Bootstrap-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-
-    <!-- External stylesheet-->
-    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Staatliches" rel="stylesheet">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css"
+        integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <div class="pos-f-t">
-        <div class="collapse" id="navbarToggleExternalContent">
-            <div class="bg-dark p-4">
-                <h5 class="text-white h4">Collapsed content</h5>
-                <span class="text-muted">Toggleable via the navbar brand.</span>
-            </div>
-        </div>
-        <nav class="navbar navbar-dark bg-dark">
-            <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-        </nav>
-    </div>
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <h1 class="display-4">Giphy Search</h1>
-            <p class="lead">Find tons of Gifs. All in one place.</p>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-9">
-                <div id="buttonDisplay"></div>
-            </div>
-            <div class="col-3">
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" id="inputTopic" type="search" placeholder="Add Topic"
-                        aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0 " id="addTopic" type="submit">Add Topic</button>
-                </form>
-            </div>
-        </div>
+    <!-- <nav class="navbar navbar-light bg-light">
+        <div id="buttons-view"></div>
+        <form class="form-inline" id="search">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                id="search-input">
+            <button id="add-topic" type="submit" value="Add a Topic" class="btn btn-light"><i
+                    class="ion-ios-plus-outline"></i>
+                Add a Topic </button>
+        </form>
+    </nav> -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <div class="row">
-            <div class="col-12">
-                <div id="gifDisplay"></div>
-            </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <nav class="navbar navbar-light bg-light">
+                        <div id="buttons-view"></div>
+                    </nav>
+                </li>
+            </ul>
+            <form class="form-inline" id="search">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"
+                    id="search-input">
+                <button id="add-topic" type="submit" value="Add a Topic" class="btn btn-light"><i
+                        class="ion-ios-plus-outline"></i>
+                    Add a Topic </button>
+            </form>
         </div>
+    </nav>
+    <div class="jumbotron">
+            <h1 class="display-4" id="title">GifTastic Gif Search</h1>
+            <p class="lead">The Best Place to Find Unique GIFs.</p>
+    </div>
+
+    <div class="container-fluid" id="container">
+        <div class="col-12" id="gifReturn">
+            <div id="gif-view"></div>
+            <div id="gif-rating"></div>
+        </div>
+    </div>
+    </div>
 
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/javascript/logic.js"></script>
 </body>
 

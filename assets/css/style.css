@@ -1,6 +1,26 @@
-.gifCard {
-    margin: 20px;
-    float: left;
+.jumbotron {
+    background-image: url("../images/colorCloud.jpeg");
+    background-size: cover;
+    height: 100%
+}
+
+.jumbotron #title {
+    color: white;
+    font-family: 'Staatliches', cursive;
+    font-size: 130px;
+    margin: auto;
+    -webkit-transition: all .8s ease-in-out
+
+}
+
+.jumbotron #title:hover {
+    text-shadow: black 5px 0 15px;
+    -webkit-filter: grayscale(0);
+    -webkit-transform: scale(1.01);}
+
+.jumbotron .lead {
+    color: white;
+    text-align: center;
 }
 
 .individual-gif-container {
@@ -22,6 +42,55 @@
     transform: translate3d(0px, -1px, 0px);
 }
 
+.individual-gif-container img{
+        /* filter: url(filters.svg#grayscale); Firefox 3.5+ */
+        filter: gray; /* IE5+ */
+        -webkit-filter: grayscale(1); /* Webkit Nightlies & Chrome Canary */
+        -webkit-transition: all .8s ease-in-out
+}
+
+.individual-gif-container img:hover {
+    filter: none;
+      -webkit-filter: grayscale(0);
+      -webkit-transform: scale(1.01);
+}
+
+.individual-gif-container p {
+    font-family: 'Poppins', sans-serif;
+    text-align: left;
+    margin-top: 10px;
+}
+.display-4 {
+    text-align: center;
+}
+
+.container {
+    margin: 100px;
+}
+
+.navbar {
+    background-color:#d1e0e0;
+}
+
+p {
+    margin: 15px;
+}
+
+#buttons-view {
+    padding: 5px;
+}
+
 .topic {
-    margin: 10px;
+    padding: 8px;
+    margin: 5px;
+    text-transform: uppercase;
+}
+
+#add-topic {
+    padding: 8px;
+    margin: 5px;
+}
+
+.card-text  {
+    text-transform: capitalize;
 }

@@ -1,6 +1,14 @@
-# Giphy Search
-An application to search the Giphy API
+# GifTastic
+#### This is a Gif finder that uses the GIFY API!
 
-This application uses JavaScript, specifically jQuery, to call and return the Giphy API. 
+## About
+This application uses the GIFY API to make dynamic pages that populate with the gifs of the user's choice.
 
-This specific repo was used to practice building, and then explaining, core jQuery concepts to students throughout my time as a TA at the University of Pennsylvania's Full-Stack Coding Bootcamp. 
+## Instructions
+Double click any button at the top and watch 10 gifs populate the page.
+
+If you're interested in different gifs not shown at the top, enter it into the search bar and click the newly created button.
+
+You will see the title and the rating under each gif. 
+
+![GifTastic](assets/images/gifTastic.png)
